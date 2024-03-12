@@ -16,12 +16,22 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Grid.Row="0"/>
+                    <TextBox
+                        Grid.Row="0"
+                        Text="{Binding RawData}"
+                    />
 
-                    <Button Grid.Row="1"
-                            Content="Parse"/>
+                    <Button
+                        Grid.Row="1"
+                        Content="Parse"
+                        Height="30"
+                        Command="{Binding ParseCommand}"
+                    />
                     
-                    <TextBox Grid.Row="2"/>
+                    <TextBox
+                        Grid.Row="2"
+                        Text="{Binding ParsedData}"
+                    />
                 
                 </Grid>
             </Setter.Value>

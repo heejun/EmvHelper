@@ -4,7 +4,7 @@
     {
         public string Parse(string data)
         {
-            return data;
+            return data + data;
         }
     }
 }

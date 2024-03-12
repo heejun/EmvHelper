@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmvHelper.Properties;
+using System;
 
 namespace EmvHelper
 {
@@ -7,7 +8,10 @@ namespace EmvHelper
         [STAThread]
         private static void Main(string[] args)
         {
-            _ = new App().Run();
+            _ = new App()
+                .AddInversionModule<HelperModules>()
+                .AddWireDataContext<WireDataContext>()
+                .Run();
         }
     }
 }
