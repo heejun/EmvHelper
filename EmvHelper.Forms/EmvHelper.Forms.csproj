@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
@@ -12,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EmvHelper.Forms\EmvHelper.Forms.csproj" />
+    <ProjectReference Include="..\EmvHelper.Support\EmvHelper.Support.csproj" />
   </ItemGroup>
 
 </Project>

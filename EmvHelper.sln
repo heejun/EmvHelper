@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmvHelper", "EmvHelper\EmvHelper.csproj", "{58CA64AB-4668-4CC2-B907-2FAB720C2724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper", "EmvHelper\EmvHelper.csproj", "{58CA64AB-4668-4CC2-B907-2FAB720C2724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmvHelper.Support", "EmvHelper.Support\EmvHelper.Support.csproj", "{6690B36E-564B-45F6-BBF8-270E321FD660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Support", "EmvHelper.Support\EmvHelper.Support.csproj", "{6690B36E-564B-45F6-BBF8-270E321FD660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmvHelper.Forms", "EmvHelper.Forms\EmvHelper.Forms.csproj", "{08976E92-2518-441B-9D81-C2B0E781296D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6690B36E-564B-45F6-BBF8-270E321FD660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6690B36E-564B-45F6-BBF8-270E321FD660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6690B36E-564B-45F6-BBF8-270E321FD660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08976E92-2518-441B-9D81-C2B0E781296D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08976E92-2518-441B-9D81-C2B0E781296D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08976E92-2518-441B-9D81-C2B0E781296D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08976E92-2518-441B-9D81-C2B0E781296D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

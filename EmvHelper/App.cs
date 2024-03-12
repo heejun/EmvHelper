@@ -1,6 +1,6 @@
-﻿using EmvHelper.Support.UI.Units;
-using Jamesnet.Wpf.Controls;
+﻿using Jamesnet.Wpf.Controls;
 using System.Windows;
+using EmvHelper.Forms.UI.Views;
 
 namespace EmvHelper
 {
@@ -8,7 +8,7 @@ namespace EmvHelper
     {
         protected override Window CreateShell()
         {
-            return new DarkWindow();
+            return new ParseWindow();
         }
     }
 }
