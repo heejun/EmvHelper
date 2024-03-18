@@ -1,7 +1,7 @@
-﻿using Jamesnet.Wpf.Controls;
+﻿using EmvHelper.Main.UI.Views;
+using Jamesnet.Wpf.Controls;
 using Prism.Ioc;
 using Prism.Modularity;
-using EmvHelper.Main.UI.Views;
 
 namespace EmvHelper.Properties
 {

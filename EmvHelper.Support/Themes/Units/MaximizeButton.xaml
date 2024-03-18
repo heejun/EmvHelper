@@ -4,6 +4,8 @@
     xmlns:james="clr-namespace:Jamesnet.Wpf.Controls;assembly=Jamesnet.Wpf"
     xmlns:units="clr-namespace:EmvHelper.Support.UI.Units">
     <Style TargetType="{x:Type units:MaximizeButton}">
+        <Setter Property="Command" Value="{Binding MaximizeCommand}"/>
+        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="Width" Value="35"/>

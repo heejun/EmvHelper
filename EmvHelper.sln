@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Support", "EmvHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Forms", "EmvHelper.Forms\EmvHelper.Forms.csproj", "{08976E92-2518-441B-9D81-C2B0E781296D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmvHelper.Main", "EmvHelper.Main\EmvHelper.Main.csproj", "{1F4E336E-B11B-4985-821A-AB76532FEEE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Main", "EmvHelper.Main\EmvHelper.Main.csproj", "{1F4E336E-B11B-4985-821A-AB76532FEEE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

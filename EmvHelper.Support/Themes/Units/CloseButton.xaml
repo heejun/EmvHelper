@@ -5,6 +5,8 @@
     xmlns:units="clr-namespace:EmvHelper.Support.UI.Units">
 
     <Style TargetType="{x:Type units:CloseButton}">
+        <Setter Property="Command" Value="{Binding CloseCommand}"/>
+        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="Width" Value="35"/>
