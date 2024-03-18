@@ -1,29 +1,32 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using EmvHelper.Support.Local.Helpers;
+﻿using Jamesnet.Wpf.Controls;
 using Jamesnet.Wpf.Mvvm;
+using Prism.Ioc;
+using Prism.Regions;
 
 namespace EmvHelper.Forms.Local.ViewModels
 {
-    public partial class ParseViewModel : ObservableBase
+    public class ParseViewModel : ObservableBase, IViewLoadable
     {
-        [ObservableProperty]
-        private string _rawData = string.Empty;
+        private readonly IContainerProvider _containerProvider;
+        private readonly IRegionManager _regionManager;
 
-        [ObservableProperty]
-        private string _parsedData = string.Empty;
-
-        [RelayCommand]
-        private void Parse()
+        public ParseViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
         {
-            ParsedData = _vivopayParser.Parse(RawData);
+            _containerProvider = containerProvider;
+            _regionManager = regionManager;
         }
 
-        private readonly VivopayParser _vivopayParser;
-
-        public ParseViewModel(VivopayParser vivopayParser)
+        public void OnLoaded(IViewable view)
         {
-            _vivopayParser = vivopayParser;
+            IRegion mainRegion = _regionManager.Regions["MainRegion"];
+            IViewable mainContent = _containerProvider.Resolve<IViewable>("MainContent");
+
+            if (!mainRegion.Views.Contains(mainContent))
+            {
+                mainRegion.Add(mainContent);
+            }
+
+            mainRegion.Activate(mainContent);
         }
     }
 }
