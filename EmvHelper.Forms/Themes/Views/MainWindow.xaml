@@ -6,8 +6,8 @@
     xmlns:views="clr-namespace:EmvHelper.Forms.UI.Views">
 
     <Style
-        TargetType="{x:Type views:ParseWindow}"
-        BasedOn="{StaticResource {x:Type based:DarkWindow}}">
+        TargetType="{x:Type views:MainWindow}"
+        BasedOn="{StaticResource {x:Type Window}}">
         <Setter Property="Content">
             <Setter.Value>
                 <james:JamesRegion RegionName="MainRegion"/>

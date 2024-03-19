@@ -8,7 +8,7 @@ namespace EmvHelper
     {
         protected override Window CreateShell()
         {
-            return new ParseWindow();
+            return new MainWindow();
         }
     }
 }

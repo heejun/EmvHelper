@@ -11,7 +11,7 @@ namespace EmvHelper.Properties
         protected override void Match(ViewModelLocatorCollection items)
         {
             items.Register<MainContent, MainContentViewModel>();
-            items.Register<ParseWindow, ParseViewModel>();
+            items.Register<MainWindow, MainViewModel>();
         }
     }
 }

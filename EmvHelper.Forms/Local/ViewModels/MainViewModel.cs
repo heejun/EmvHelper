@@ -7,12 +7,12 @@ using System.Windows;
 
 namespace EmvHelper.Forms.Local.ViewModels
 {
-    public partial class ParseViewModel : ObservableBase, IViewLoadable
+    public partial class MainViewModel : ObservableBase, IViewLoadable
     {
         private readonly IContainerProvider _containerProvider;
         private readonly IRegionManager _regionManager;
 
-        public ParseViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
+        public MainViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
         {
             _containerProvider = containerProvider;
             _regionManager = regionManager;
@@ -29,24 +29,6 @@ namespace EmvHelper.Forms.Local.ViewModels
             }
 
             mainRegion.Activate(mainContent);
-        }
-
-        [RelayCommand]
-        private void Minimize(object value)
-        {
-            Window.GetWindow((UIElement)value).WindowState = WindowState.Minimized;
-        }
-
-        [RelayCommand]
-        private void Maximize(object value)
-        {
-            Window.GetWindow((UIElement)value).WindowState = WindowState.Maximized;
-        }
-
-        [RelayCommand]
-        private void Close(object value)
-        {
-            Window.GetWindow((UIElement)value).Close();
         }
     }
 }
