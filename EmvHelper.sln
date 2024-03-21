@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Forms", "EmvHelpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmvHelper.Main", "EmvHelper.Main\EmvHelper.Main.csproj", "{1F4E336E-B11B-4985-821A-AB76532FEEE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmvHelper.Test", "EmvHelper.Test\EmvHelper.Test.csproj", "{74F93CC6-5487-4B01-9FEF-41E6A8CBEC82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1F4E336E-B11B-4985-821A-AB76532FEEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F4E336E-B11B-4985-821A-AB76532FEEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F4E336E-B11B-4985-821A-AB76532FEEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F93CC6-5487-4B01-9FEF-41E6A8CBEC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F93CC6-5487-4B01-9FEF-41E6A8CBEC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F93CC6-5487-4B01-9FEF-41E6A8CBEC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F93CC6-5487-4B01-9FEF-41E6A8CBEC82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

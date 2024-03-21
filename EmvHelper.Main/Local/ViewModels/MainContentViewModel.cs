@@ -7,9 +7,9 @@ namespace EmvHelper.Main.Local.ViewModels
 {
     public partial class MainContentViewModel : ObservableBase
     {
-        private readonly VivopayParser _vivopayParser;
+        private readonly VivoParser _vivopayParser;
 
-        public MainContentViewModel(VivopayParser vivopayParser)
+        public MainContentViewModel(VivoParser vivopayParser)
         {
             _vivopayParser = vivopayParser;
         }
@@ -23,7 +23,11 @@ namespace EmvHelper.Main.Local.ViewModels
         [RelayCommand]
         private void Parse()
         {
-            ParsedData = _vivopayParser.Parse(RawData);
+            VivoMessage? vivoMessage = VivoParser.Parse(RawData, VivoMessageType.Response);
+            if (vivoMessage != null)
+            {
+                ParsedData = vivoMessage.ToString();
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace EmvHelper.Properties
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<VivopayParser>();
+            containerRegistry.RegisterSingleton<VivoParser>();
         }
     }
 }
