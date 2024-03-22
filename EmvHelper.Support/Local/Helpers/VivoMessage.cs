@@ -1,6 +1,5 @@
 ﻿using BerTlv;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -97,45 +96,19 @@ namespace EmvHelper.Support.Local.Helpers
 
                 if (vm.Data.Length >= 4)
                 {
-                    VivoSuccessfulData successfulData = new ();
+                    VivoSuccessfulData successfulData = new();
                     int index = 0;
 
-                    // Track 1
+                    // Track 1/2/3
                     for (int i = 0; i < 3; i++)
                     {
-
                         if (vm.Data[index] > 0)
                         {
-                            successfulData.Track1 = new byte[vm.Data[index]];
-                            Array.Copy(vm.Data, 0, successfulData.Track1, 0, successfulData.Track1.Length);
-
-                            index += successfulData.Track1.Length + 1;
+                            var trackData = new byte[vm.Data[index]];
+                            Array.Copy(vm.Data, 0, trackData, 0, trackData.Length);
+                            successfulData.Tracks[i] = trackData;
+                            index += trackData.Length + 1;
                         }
-                    }
-                    if (vm.Data[index] > 0)
-                    {
-                        successfulData.Track1 = new byte[vm.Data[index]];
-                        Array.Copy(vm.Data, 0, successfulData.Track1, 0, successfulData.Track1.Length);
-
-                        index += successfulData.Track1.Length + 1;
-                    }
-
-                    // Track 2
-                    if (vm.Data[index] > 0)
-                    {
-                        successfulData.Track2 = new byte[vm.Data[index]];
-                        Array.Copy(vm.Data, 0, successfulData.Track2, 0, successfulData.Track2.Length);
-
-                        index += successfulData.Track2.Length + 1;
-                    }
-
-                    // Track 3
-                    if (vm.Data[index] > 0)
-                    {
-                        successfulData.Track3 = new byte[vm.Data[index]];
-                        Array.Copy(vm.Data, 0, successfulData.Track3, 0, successfulData.Track3.Length);
-
-                        index += successfulData.Track3.Length + 1;
                     }
 
                     // Clearing Record
@@ -205,8 +178,45 @@ namespace EmvHelper.Support.Local.Helpers
             {
                 if (SuccessfulData != null)
                 {
-                    //sb.Append($"Track 1 Data : {SuccessfulData.Track1?.Length ?? 0}");
+                    // Track 1/2/3
+                    for (int i = 0; i < 3; i++)
+                    {
+                        var trackData = SuccessfulData.Tracks[i];
+                        sb.Append($"Track {i + 1} Data : {trackData?.Length ?? 0} : ");
+                        if (trackData != null)
+                        {
+                            sb.AppendLine($"{VivoParser.ByteArrayToHexString(trackData)}");
+                        }
+                        else
+                        {
+                            sb.AppendLine();
+                        }
+                    }
 
+                    // Clearing Record
+                    var tlvClearing = SuccessfulData.TlvClearing;
+                    if (tlvClearing != null)
+                    {
+                        sb.AppendLine($"TLV Clearing Record : {tlvClearing.HexTag} : {tlvClearing.Length} : {tlvClearing.HexValue}");
+                    }
+
+                    // TLV Data
+                    var tlvData = SuccessfulData.TlvData;
+                    if (tlvData != null)
+                    {
+                        sb.AppendLine("TLV Data :");
+                        foreach (Tlv tlv in tlvData)
+                        {
+                            sb.AppendLine($"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}");
+                            if (tlv.Children != null)
+                            {
+                                foreach (Tlv childTlv in tlv.Children)
+                                {
+                                    sb.AppendLine($"    {childTlv.HexTag} : {childTlv.Length} : {childTlv.HexValue}");
+                                }
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -219,6 +229,7 @@ namespace EmvHelper.Support.Local.Helpers
 
                     if (FailureData.TlvData != null)
                     {
+                        sb.AppendLine("TLV Data :");
                         foreach (Tlv tlv in FailureData.TlvData)
                         {
                             sb.AppendLine($"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}");
