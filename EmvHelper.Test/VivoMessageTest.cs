@@ -20,13 +20,18 @@ namespace EmvHelper.Test
 
             var result = VivoParser.Parse(respMessage, VivoMessageType.Response);
             Assert.NotNull(result);
-            Assert.True(result.IsValid);
+            Assert.True(result.IsValidMessage);
             Assert.NotNull(result.HeaderTag);
             Assert.True(Convert.ToHexString(result.HeaderTag).Equals("56 69 56 4F 74 65 63 68 32 00".Replace(" ", "")));
             Assert.True(result.Command == 0x02);
             Assert.True(result.StatusCode == 0x0A);
-            Assert.True(result.DataLength == 0x0022);
-            Assert.True(result.DataLength == result.Data?.Length);
+            Assert.True(result.Data?.Length == 0x0022);
+            Assert.True(!result.IsSuccessfulTransaction);
+            Assert.NotNull(result.FailureData);
+            Assert.True(result.FailureData.ErrorCode == 0x27);
+            Assert.True(result.FailureData.SW1 == 0x90);
+            Assert.True(result.FailureData.SW2 == 0x00);
+            Assert.True(result.FailureData.RfStateCode == 0x01);
         }
     }
 }
