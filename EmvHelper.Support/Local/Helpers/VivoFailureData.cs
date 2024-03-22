@@ -9,6 +9,6 @@ namespace EmvHelper.Support.Local.Helpers
         public byte SW1 { get; set; }
         public byte SW2 { get; set; }
         public byte RfStateCode { get; set; }
-        public ICollection<Tlv> Tlvs { get; set; }
+        public ICollection<Tlv>? TlvData { get; set; }
     }
 }
