@@ -15,7 +15,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5*"/>
                             </Grid.RowDefinitions>
 
                             <TextBox
@@ -23,12 +23,24 @@
                                 Text="{Binding RawData}"
                             />
 
-                            <Button
+                            <StackPanel
                                 Grid.Row="1"
-                                Content="Parse"
-                                Height="30"
-                                Command="{Binding ParseCommand}"
-                            />
+                                Orientation="Horizontal">
+                                <Button
+                                    Content="Parse"
+                                    Height="30"
+                                    Width="100"
+                                    Command="{Binding ParseCommand}"
+                                />
+                                <Button
+                                    Content="Clear"
+                                    Height="30"
+                                    Width="100"
+                                    Margin="5 0 0 0"
+                                    Command="{Binding ClearCommand}"
+                                />
+                            </StackPanel>
+
 
                             <TextBox
                                 Grid.Row="2"
