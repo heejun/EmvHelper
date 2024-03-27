@@ -1,4 +1,4 @@
-﻿using BerTlv;
+﻿using EmvHelper.Support.Local.Helpers.BerTlv;
 using System.Collections.Generic;
 
 namespace EmvHelper.Support.Local.Helpers

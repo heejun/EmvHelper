@@ -18,7 +18,7 @@ namespace EmvHelper.Test
             //   RF State code : 01
             //   Tlv data      : 9F 1E 08 37 33 31 54 38 32 36 33 9F 41 04 00 00 04 18 DF EE 4C 01 00 9F 2A 00 DF EC 1C 00 7F B6
 
-            var result = VivoParser.Parse(respMessage, VivoMessageType.Response);
+            var result = HjParser.ParseVivoMessage(respMessage, VivoMessageType.Response);
             Assert.NotNull(result);
             Assert.True(result.IsValidMessage);
             Assert.NotNull(result.HeaderTag);

@@ -1,4 +1,4 @@
-﻿using BerTlv;
+﻿using EmvHelper.Support.Local.Helpers.BerTlv;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +21,17 @@ namespace EmvHelper.Support.Local.Helpers
 
         public VivoSuccessfulData? SuccessfulData { get; private set; }
         public VivoFailureData? FailureData { get; private set; }
+
+        public static VivoMessage? Parse(string message, VivoMessageType messageType)
+        {
+            byte[]? bytes = StringHelper.HexStringToByteArray(StringHelper.NormalizeString(message));
+            if (bytes == null)
+            {
+                return null;
+            }
+
+            return Parse(bytes, messageType);
+        }
 
         public static VivoMessage? Parse(byte[] message, VivoMessageType messageType)
         {
@@ -115,7 +126,7 @@ namespace EmvHelper.Support.Local.Helpers
                     bool isClearingPresent = (vm.Data[index++] == 1);
                     byte[] temp = new byte[vm.Data.Length - index];
                     Array.Copy(vm.Data, index, temp, 0, temp.Length);
-                    ICollection<Tlv> tlvs = Tlv.Parse(temp);
+                    ICollection<Tlv> tlvs = TlvParser.Parse(temp);
 
                     if (isClearingPresent)
                     {
@@ -164,11 +175,11 @@ namespace EmvHelper.Support.Local.Helpers
             }
 
             StringBuilder sb = new();
-            sb.AppendLine($"Header : {VivoParser.ByteArrayToAsciiString(HeaderTag)}");
+            sb.AppendLine($"Header : {StringHelper.ByteArrayToAsciiString(HeaderTag)}");
             sb.AppendLine($"Command : {Command:X2}h");
             sb.AppendLine($"Status Code : {StatusCode:X2}h");
             sb.AppendLine($"Data Length : {Data?.Length ?? 0}");
-            string hexString = VivoParser.ByteArrayToHexString(Data);
+            string hexString = StringHelper.ByteArrayToHexString(Data);
             if (hexString != null)
             {
                 sb.AppendLine($"Data : {hexString}");
@@ -185,7 +196,7 @@ namespace EmvHelper.Support.Local.Helpers
                         sb.Append($"Track {i + 1} Data : {trackData?.Length ?? 0} : ");
                         if (trackData != null)
                         {
-                            sb.AppendLine($"{VivoParser.ByteArrayToHexString(trackData)}");
+                            sb.AppendLine($"{StringHelper.ByteArrayToHexString(trackData)}");
                         }
                         else
                         {
@@ -197,7 +208,8 @@ namespace EmvHelper.Support.Local.Helpers
                     var tlvClearing = SuccessfulData.TlvClearing;
                     if (tlvClearing != null)
                     {
-                        sb.AppendLine($"TLV Clearing Record : {tlvClearing.HexTag} : {tlvClearing.Length} : {tlvClearing.HexValue}");
+                        sb.AppendLine("TLV Clearing Record :");
+                        sb.AppendLine(TlvParser.ToString(tlvClearing));
                     }
 
                     // TLV Data
@@ -205,17 +217,7 @@ namespace EmvHelper.Support.Local.Helpers
                     if (tlvData != null)
                     {
                         sb.AppendLine("TLV Data :");
-                        foreach (Tlv tlv in tlvData)
-                        {
-                            sb.AppendLine($"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}");
-                            if (tlv.Children != null)
-                            {
-                                foreach (Tlv childTlv in tlv.Children)
-                                {
-                                    sb.AppendLine($"    {childTlv.HexTag} : {childTlv.Length} : {childTlv.HexValue}");
-                                }
-                            }
-                        }
+                        sb.AppendLine(TlvParser.ToString(tlvData));
                     }
                 }
             }

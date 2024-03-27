@@ -1,15 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EmvHelper.Support.Local.Helpers;
+using EmvHelper.Support.Local.Helpers.BerTlv;
 using Jamesnet.Wpf.Mvvm;
 
 namespace EmvHelper.Main.Local.ViewModels
 {
     public partial class MainContentViewModel : ObservableBase
     {
-        private readonly VivoParser _vivopayParser;
+        private readonly HjParser _vivopayParser;
 
-        public MainContentViewModel(VivoParser vivopayParser)
+        public MainContentViewModel(HjParser vivopayParser)
         {
             _vivopayParser = vivopayParser;
         }
@@ -23,18 +24,30 @@ namespace EmvHelper.Main.Local.ViewModels
         [ObservableProperty]
         private string _parsedData = string.Empty;
 
+        [ObservableProperty]
+        private bool _isTlvOnly = false;
+
         [RelayCommand]
         private void Parse()
         {
-            VivoMessage? vivoMessage = VivoParser.Parse(RawData, VivoMessageType.Response);
-            if (vivoMessage != null)
+            if (IsTlvOnly)
             {
-                ParsedData = vivoMessage.ToString();
+                ICollection<Tlv> tlvs = HjParser.ParseTlv(RawData);
+                ParsedData = TlvParser.ToString(tlvs);
             }
             else
             {
-                ParsedData = "Invalid data";
+                VivoMessage? vivoMessage = HjParser.ParseVivoMessage(RawData, VivoMessageType.Response);
+                if (vivoMessage != null)
+                {
+                    ParsedData = vivoMessage.ToString();
+                }
+                else
+                {
+                    ParsedData = "Invalid data";
+                }
             }
+
         }
 
         [RelayCommand]

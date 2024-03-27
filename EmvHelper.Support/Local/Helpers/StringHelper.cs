@@ -4,21 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace EmvHelper.Support.Local.Helpers
 {
-    public class VivoParser
+    public class StringHelper
     {
-        public static VivoMessage? Parse(string input, VivoMessageType messageType)
-        {
-            byte[]? data = VivoParser.HexStringToByteArray(VivoParser.Normalize(input));
-            if (data == null)
-            {
-                return null;
-            }
-
-            VivoMessage? vivoMessage = VivoMessage.Parse(data, messageType);
-            return vivoMessage;
-        }
-
-        private static string Normalize(string input)
+        public static string NormalizeString(string input)
         {
             string output = Regex.Replace(input, @"\s+", "").ToUpper();
 
@@ -45,7 +33,7 @@ namespace EmvHelper.Support.Local.Helpers
             byte[] bytes = new byte[hex.Length / 2];
             for (int i = 0; i < hex.Length; i += 2)
             {
-                bytes[i/2] = Convert.ToByte(hex.Substring(i, 2), 16);
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             }
 
             return bytes;

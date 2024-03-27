@@ -39,6 +39,11 @@
                                     Margin="5 0 0 0"
                                     Command="{Binding ClearCommand}"
                                 />
+                                <CheckBox
+                                    Content="TLVs only"
+                                    Margin="5 0 0 0"
+                                    IsChecked="{Binding IsTlvOnly}"
+                                />
                             </StackPanel>
 
 
