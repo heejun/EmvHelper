@@ -7,17 +7,9 @@ namespace EmvHelper.Support.Local.Helpers
     
     public class TlvParser
     {
-        public static ICollection<Tlv>? Parse(string tlv)
+        public static ICollection<Tlv> Parse(string tlv)
         {
-            try
-            {
-                return Tlv.Parse(StringHelper.NormalizeString(tlv));
-            }
-            catch
-            {
-                return null;
-            }
-
+            return Tlv.Parse(StringHelper.NormalizeString(tlv));
         }
 
         public static ICollection<Tlv> Parse(byte[] tlv)

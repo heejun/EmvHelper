@@ -156,10 +156,9 @@ namespace EmvHelper.Support.Local.Helpers
 
                     if (vm.Data.Length > 4)
                     {
-                        // https://github.com/kspearrin/BerTlv.NET
                         byte[] tlvData = new byte[vm.Data.Length - 4];
                         Array.Copy(vm.Data, 4, tlvData, 0, tlvData.Length);
-                        failureData.TlvData = Tlv.Parse(tlvData);
+                        failureData.TlvData = TlvParser.Parse(tlvData);
                     }
 
                     vm.FailureData = failureData;
@@ -213,11 +212,10 @@ namespace EmvHelper.Support.Local.Helpers
                     }
 
                     // TLV Data
-                    var tlvData = SuccessfulData.TlvData;
-                    if (tlvData != null)
+                    if (SuccessfulData.TlvData != null)
                     {
                         sb.AppendLine("TLV Data :");
-                        sb.AppendLine(TlvParser.ToString(tlvData));
+                        sb.AppendLine(TlvParser.ToString(SuccessfulData.TlvData));
                     }
                 }
             }
@@ -232,17 +230,7 @@ namespace EmvHelper.Support.Local.Helpers
                     if (FailureData.TlvData != null)
                     {
                         sb.AppendLine("TLV Data :");
-                        foreach (Tlv tlv in FailureData.TlvData)
-                        {
-                            sb.AppendLine($"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}");
-                            if (tlv.Children != null)
-                            {
-                                foreach (Tlv childTlv in tlv.Children)
-                                {
-                                    sb.AppendLine($"    {childTlv.HexTag} : {childTlv.Length} : {childTlv.HexValue}");
-                                }
-                            }
-                        }
+                        sb.AppendLine(TlvParser.ToString(FailureData.TlvData));
                     }
                 }
             }
