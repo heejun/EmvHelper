@@ -16,11 +16,12 @@ namespace EmvHelper.Support.Local.Helpers
         public byte SubCommand { get; private set; }
         public byte StatusCode { get; private set; }
         public byte[]? Data { get; private set; } = null;
-
-        public bool IsSuccessfulTransaction => (StatusCode == 0x00 || StatusCode == 0x23);
-
         public VivoSuccessfulData? SuccessfulData { get; private set; }
         public VivoFailureData? FailureData { get; private set; }
+        public byte[]? TlvRawData { get; private set; }
+        public ICollection<Tlv>? TlvData { get; private set; }
+
+        public bool IsSuccessfulTransaction => (StatusCode == 0x00 || StatusCode == 0x23);
 
         public static VivoMessage? Parse(string message, VivoMessageType messageType)
         {
@@ -122,23 +123,12 @@ namespace EmvHelper.Support.Local.Helpers
                         }
                     }
 
-                    // Clearing Record
+                    // Clearing Record Present
                     bool isClearingPresent = (vm.Data[index++] == 1);
-                    byte[] temp = new byte[vm.Data.Length - index];
-                    Array.Copy(vm.Data, index, temp, 0, temp.Length);
-                    ICollection<Tlv> tlvs = TlvParser.Parse(temp);
 
-                    if (isClearingPresent)
-                    {
-                        successfulData.TlvClearing = tlvs.ElementAtOrDefault(0);
-                        if (successfulData.TlvClearing != null)
-                        {
-                            tlvs.Remove(successfulData.TlvClearing);
-                        }
-                    }
-
-                    // TLV Data
-                    successfulData.TlvData = tlvs;
+                    vm.TlvRawData = new byte[vm.Data.Length - index];
+                    Array.Copy(vm.Data, index, vm.TlvRawData, 0, vm.TlvRawData.Length);
+                    vm.TlvData = TlvParser.Parse(vm.TlvRawData);
 
                     vm.SuccessfulData = successfulData;
                 }
@@ -156,9 +146,9 @@ namespace EmvHelper.Support.Local.Helpers
 
                     if (vm.Data.Length > 4)
                     {
-                        byte[] tlvData = new byte[vm.Data.Length - 4];
-                        Array.Copy(vm.Data, 4, tlvData, 0, tlvData.Length);
-                        failureData.TlvData = TlvParser.Parse(tlvData);
+                        vm.TlvRawData = new byte[vm.Data.Length - 4];
+                        Array.Copy(vm.Data, 4, vm.TlvRawData, 0, vm.TlvRawData.Length);
+                        vm.TlvData = TlvParser.Parse(vm.TlvRawData);
                     }
 
                     vm.FailureData = failureData;
@@ -202,21 +192,6 @@ namespace EmvHelper.Support.Local.Helpers
                             sb.AppendLine();
                         }
                     }
-
-                    // Clearing Record
-                    var tlvClearing = SuccessfulData.TlvClearing;
-                    if (tlvClearing != null)
-                    {
-                        sb.AppendLine("TLV Clearing Record :");
-                        sb.AppendLine(TlvParser.ToString(tlvClearing));
-                    }
-
-                    // TLV Data
-                    if (SuccessfulData.TlvData != null)
-                    {
-                        sb.AppendLine("TLV Data :");
-                        sb.AppendLine(TlvParser.ToString(SuccessfulData.TlvData));
-                    }
                 }
             }
             else
@@ -226,13 +201,13 @@ namespace EmvHelper.Support.Local.Helpers
                     sb.AppendLine($"Error Code : {FailureData.ErrorCode:X2}h");
                     sb.AppendLine($"SW1SW2 : {FailureData.SW1:X2}{FailureData.SW2:X2}h");
                     sb.AppendLine($"RF State Code : {FailureData.RfStateCode:X2}h");
-
-                    if (FailureData.TlvData != null)
-                    {
-                        sb.AppendLine("TLV Data :");
-                        sb.AppendLine(TlvParser.ToString(FailureData.TlvData));
-                    }
                 }
+            }
+
+            if (TlvData != null)
+            {
+                sb.AppendLine($"TLV Data : {StringHelper.ByteArrayToHexString(TlvRawData)}");
+                sb.AppendLine(TlvParser.ToString(TlvData, 1));
             }
 
             return sb.ToString();

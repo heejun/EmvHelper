@@ -1,10 +1,10 @@
 ﻿using EmvHelper.Support.Local.Helpers.BerTlv;
+using EmvHelper.Support.Local.Helpers.Tags;
 using System.Collections.Generic;
 using System.Text;
 
 namespace EmvHelper.Support.Local.Helpers
 {
-    
     public class TlvParser
     {
         public static ICollection<Tlv> Parse(string tlv)
@@ -19,24 +19,23 @@ namespace EmvHelper.Support.Local.Helpers
 
         public static string ToString(Tlv tlv)
         {
-            return $"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}";
+            return ToString(new List<Tlv>() { tlv });
         }
 
-        public static string ToString(ICollection<Tlv> tlvs)
+        public static string ToString(ICollection<Tlv> tlvs, int depth = 0)
         {
             StringBuilder sb = new();
+            int numOfSpaces = 4;
 
             if (tlvs != null)
             {
                 foreach (Tlv tlv in tlvs)
                 {
-                    sb.AppendLine($"  {tlv.HexTag} : {tlv.Length} : {tlv.HexValue}");
+                    TagInfo? tagInfo = TagManager.GetTagInfo(tlv.HexTag);
+                    sb.AppendLine($"{new string(' ', numOfSpaces * depth)}{tagInfo?.Name ?? "*"} ({tlv.HexTag}) : {tlv.HexLength} : {tlv.HexValue}");
                     if (tlv.Children != null)
                     {
-                        foreach (Tlv childTlv in tlv.Children)
-                        {
-                            sb.AppendLine($"    {childTlv.HexTag} : {childTlv.Length} : {childTlv.HexValue}");
-                        }
+                        ToString(tlv.Children, depth + 1);
                     }
                 }
             }
