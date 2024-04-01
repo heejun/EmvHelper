@@ -1,6 +1,10 @@
 ﻿using EmvHelper.Support.Local.Helpers.BerTlv;
+using EmvHelper.Support.Local.Helpers.Vivo;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -8,6 +12,52 @@ namespace EmvHelper.Support.Local.Helpers
 {
     public class VivoMessage
     {
+        private static Dictionary<int, string> _statusDictionary;
+        private static Dictionary<int, string> _errorDictionary;
+        private static Dictionary<int, string> _rfStateDictionary;
+
+        static VivoMessage()
+        {
+            _statusDictionary = LoadData("Data/status_codes.json");
+            _errorDictionary = LoadData("Data/error_codes.json");
+            _rfStateDictionary = LoadData("Data/rfState_codes.json");
+        }
+
+        private static Dictionary<int, string> LoadData(string filePath)
+        {
+            Dictionary<int, string> result = new();
+
+            try
+            {
+                string jsonText = File.ReadAllText(filePath);
+
+                JObject jsonObject = JObject.Parse(jsonText);
+
+                foreach (var item in jsonObject)
+                {
+                    result.Add(Convert.ToInt32(item.Key, 16), (item.Value ?? "").ToString());
+                }
+            }
+            catch
+            {
+            }
+
+            return result;
+        }
+
+        static TValue GetValueOrDefault<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
+        {
+            TValue value;
+            if (dictionary.TryGetValue(key, out value))
+            {
+                return value; // 해당 키에 해당되는 값이 있으면 반환
+            }
+            else
+            {
+                return defaultValue; // 해당 키에 해당되는 값이 없으면 기본값 반환
+            }
+        }
+
         public bool IsValidMessage { get; private set; } = false;
 
         public VivoMessageType MessageType { get; private set; }
@@ -166,7 +216,7 @@ namespace EmvHelper.Support.Local.Helpers
             StringBuilder sb = new();
             sb.AppendLine($"Header : {StringHelper.ByteArrayToAsciiString(HeaderTag)}");
             sb.AppendLine($"Command : {Command:X2}h");
-            sb.AppendLine($"Status Code : {StatusCode:X2}h");
+            sb.AppendLine($"Status Code : {StatusCode:X2}h - {GetValueOrDefault(_statusDictionary, StatusCode, "")}");
             sb.AppendLine($"Data Length : {Data?.Length ?? 0}");
             string hexString = StringHelper.ByteArrayToHexString(Data);
             if (hexString != null)
@@ -198,9 +248,9 @@ namespace EmvHelper.Support.Local.Helpers
             {
                 if (FailureData != null)
                 {
-                    sb.AppendLine($"Error Code : {FailureData.ErrorCode:X2}h");
+                    sb.AppendLine($"Error Code : {FailureData.ErrorCode:X2}h - {GetValueOrDefault(_errorDictionary, FailureData.ErrorCode, "")}");
                     sb.AppendLine($"SW1SW2 : {FailureData.SW1:X2}{FailureData.SW2:X2}h");
-                    sb.AppendLine($"RF State Code : {FailureData.RfStateCode:X2}h");
+                    sb.AppendLine($"RF State Code : {FailureData.RfStateCode:X2}h - {GetValueOrDefault(_rfStateDictionary, FailureData.RfStateCode, "")}");
                 }
             }
 
