@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\emv_visa.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\error_codes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -21,10 +24,10 @@
     <None Update="Data\status_codes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\tags_emv.json">
+    <None Update="Data\emv_common.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\tags_mc.json">
+    <None Update="Data\emv_mc.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

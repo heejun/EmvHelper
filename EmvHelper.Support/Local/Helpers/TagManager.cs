@@ -9,11 +9,13 @@ namespace EmvHelper.Support.Local.Helpers
     {
         private static readonly Dictionary<string, TagInfo> _tagEmvDictionary;
         private static readonly Dictionary<string, TagInfo> _tagMcDictionary;
+        private static readonly Dictionary<string, TagInfo> _tagVisaDictionary;
 
         static TagManager()
         {
-            _tagEmvDictionary = LoadTagData("Data/tags_emv.json");
-            _tagMcDictionary = LoadTagData("Data/tags_mc.json");
+            _tagEmvDictionary = LoadTagData("Data/emv_common.json");
+            _tagMcDictionary = LoadTagData("Data/emv_mc.json");
+            _tagVisaDictionary = LoadTagData("Data/emv_visa.json");
         }
 
         private static Dictionary<string, TagInfo> LoadTagData(string filePath)
@@ -49,7 +51,11 @@ namespace EmvHelper.Support.Local.Helpers
             {
                 return tagInfo;
             }
-            else if (_tagMcDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
+            //else if (_tagMcDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
+            //{
+            //    return tagInfo;
+            //}
+            else if (_tagVisaDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
             {
                 return tagInfo;
             }
