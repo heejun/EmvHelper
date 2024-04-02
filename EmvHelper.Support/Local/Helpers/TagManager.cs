@@ -1,37 +1,59 @@
 ﻿using EmvHelper.Support.Local.Helpers.Tags;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.IO;
 using System.Linq;
 using System.Transactions;
+using YamlDotNet.Core.Tokens;
 
 namespace EmvHelper.Support.Local.Helpers
 {
     public class TagManager
     {
-        private static List<TagInfo> _tagList = new();
+        private static readonly Dictionary<string, TagInfo> _TagDictionary;
 
         static TagManager()
         {
-            LoadTagDescriptions();
+            _TagDictionary = LoadTagData("Data/tags_emv.json");
         }
 
-        private static void LoadTagDescriptions()
+        private static Dictionary<string, TagInfo> LoadTagData(string filePath)
         {
-            //9F 1E 08 37 33 31 54 38 32 36 33 9F 41 04 00 00 04 18 DF EE 4C 01 00 9F 2A 00 DF EC 1C 00
+            Dictionary<string, TagInfo> result = new();
 
-            _tagList.Add(new TagInfo("9F1E", "Interface Device (IFD) Serial Number", "Unique and permanent serial number assigned to the IFD by the manufacturer"));
-            _tagList.Add(new TagInfo("9F41", "Transaction Sequence Counter", "Counter maintained by the terminal that is incremented by one for each transaction"));
-            _tagList.Add(new TagInfo("DFEE4C", "[Vivo]Selected Application", ""));
-            _tagList.Add(new TagInfo("9F2A", "[Vivo]Kernel ID", ""));
-            _tagList.Add(new TagInfo("DFEC1C", "[Vivo]XFS Format Data", ""));
+            try
+            {
+                string jsonText = File.ReadAllText(filePath);
 
+                List<TagInfo>? dataList = JsonConvert.DeserializeObject<List<TagInfo>>(jsonText);
+
+                if (dataList is not null)
+                {
+                    foreach (var item in dataList)
+                    {
+                        result[item.Tag] = item;
+                    }
+                }
+
+            }
+            catch
+            {
+            }
+
+            return result;
         }
 
         public static TagInfo? GetTagInfo(string tag)
         {
-            return _tagList.FirstOrDefault(x => x.Tag == tag);
+            if (_TagDictionary.TryGetValue(tag, out TagInfo? tagInfo))
+            {
+                return tagInfo;
+            }
+
+            return null;
         }
-
-
     }
 }

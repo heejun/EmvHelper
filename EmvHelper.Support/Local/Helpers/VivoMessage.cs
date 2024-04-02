@@ -1,26 +1,23 @@
 ﻿using EmvHelper.Support.Local.Helpers.BerTlv;
-using EmvHelper.Support.Local.Helpers.Vivo;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace EmvHelper.Support.Local.Helpers
 {
     public class VivoMessage
     {
-        private static Dictionary<int, string> _statusDictionary;
-        private static Dictionary<int, string> _errorDictionary;
-        private static Dictionary<int, string> _rfStateDictionary;
+        private static readonly Dictionary<int, string> _statusDictionary;
+        private static readonly Dictionary<int, string> _errorDictionary;
+        private static readonly Dictionary<int, string> _rfStateDictionary;
 
         static VivoMessage()
         {
             _statusDictionary = LoadData("Data/status_codes.json");
             _errorDictionary = LoadData("Data/error_codes.json");
-            _rfStateDictionary = LoadData("Data/rfState_codes.json");
+            _rfStateDictionary = LoadData("Data/rfstate_codes.json");
         }
 
         private static Dictionary<int, string> LoadData(string filePath)
