@@ -1,23 +1,19 @@
 ﻿using EmvHelper.Support.Local.Helpers.Tags;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
 using System.IO;
-using System.Linq;
-using System.Transactions;
-using YamlDotNet.Core.Tokens;
 
 namespace EmvHelper.Support.Local.Helpers
 {
     public class TagManager
     {
-        private static readonly Dictionary<string, TagInfo> _TagDictionary;
+        private static readonly Dictionary<string, TagInfo> _tagEmvDictionary;
+        private static readonly Dictionary<string, TagInfo> _tagMcDictionary;
 
         static TagManager()
         {
-            _TagDictionary = LoadTagData("Data/tags_emv.json");
+            _tagEmvDictionary = LoadTagData("Data/tags_emv.json");
+            _tagMcDictionary = LoadTagData("Data/tags_mc.json");
         }
 
         private static Dictionary<string, TagInfo> LoadTagData(string filePath)
@@ -34,10 +30,9 @@ namespace EmvHelper.Support.Local.Helpers
                 {
                     foreach (var item in dataList)
                     {
-                        result[item.Tag] = item;
+                        result[item.Tag.ToUpper()] = item;
                     }
                 }
-
             }
             catch
             {
@@ -48,7 +43,13 @@ namespace EmvHelper.Support.Local.Helpers
 
         public static TagInfo? GetTagInfo(string tag)
         {
-            if (_TagDictionary.TryGetValue(tag, out TagInfo? tagInfo))
+            TagInfo? tagInfo;
+
+            if (_tagEmvDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
+            {
+                return tagInfo;
+            }
+            else if (_tagMcDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
             {
                 return tagInfo;
             }

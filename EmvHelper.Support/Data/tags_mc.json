@@ -1,0 +1,897 @@
+[
+    {
+        "tag": "50",
+        "name": "Application Label",
+        "desc": ""
+    },
+    {
+        "tag": "56",
+        "name": "Track 1 Data",
+        "desc": ""
+    },
+    {
+        "tag": "57",
+        "name": "Track 2 Equivalent Data",
+        "desc": ""
+    },
+    {
+        "tag": "5A",
+        "name": "Application PAN",
+        "desc": ""
+    },
+    {
+        "tag": "5F24",
+        "name": "Application Expiration Date",
+        "desc": ""
+    },
+    {
+        "tag": "5F25",
+        "name": "Application Effective Date",
+        "desc": ""
+    },
+    {
+        "tag": "5F28",
+        "name": "Issuer Country Code",
+        "desc": ""
+    },
+    {
+        "tag": "5F2A",
+        "name": "Transaction Currency Code",
+        "desc": ""
+    },
+    {
+        "tag": "5F2D",
+        "name": "Language Preference",
+        "desc": ""
+    },
+    {
+        "tag": "5F30",
+        "name": "Service Code",
+        "desc": ""
+    },
+    {
+        "tag": "5F34",
+        "name": "Application PAN Sequence Number",
+        "desc": ""
+    },
+    {
+        "tag": "5F36",
+        "name": "Transaction Currency Exponent",
+        "desc": ""
+    },
+    {
+        "tag": "5F57",
+        "name": "Account Type",
+        "desc": ""
+    },
+    {
+        "tag": "6F",
+        "name": "File Control Information Template",
+        "desc": ""
+    },
+    {
+        "tag": "70",
+        "name": "Read Record Template",
+        "desc": ""
+    },
+    {
+        "tag": "77",
+        "name": "Response Message Template Format 2",
+        "desc": ""
+    },
+    {
+        "tag": "80",
+        "name": "Response Message Template Format 1",
+        "desc": ""
+    },
+    {
+        "tag": "82",
+        "name": "Application Interchange Profile",
+        "desc": ""
+    },
+    {
+        "tag": "84",
+        "name": "DF Name",
+        "desc": ""
+    },
+    {
+        "tag": "87",
+        "name": "Application Priority Indicator",
+        "desc": ""
+    },
+    {
+        "tag": "8C",
+        "name": "CDOL1",
+        "desc": ""
+    },
+    {
+        "tag": "8E",
+        "name": "CVM List",
+        "desc": ""
+    },
+    {
+        "tag": "8F",
+        "name": "CA Public Key Index (Card)",
+        "desc": ""
+    },
+    {
+        "tag": "90",
+        "name": "Issuer Public Key Certificate",
+        "desc": ""
+    },
+    {
+        "tag": "92",
+        "name": "Issuer Public Key Remainder",
+        "desc": ""
+    },
+    {
+        "tag": "94",
+        "name": "Application File Locator",
+        "desc": ""
+    },
+    {
+        "tag": "95",
+        "name": "Terminal Verification Results",
+        "desc": ""
+    },
+    {
+        "tag": "9A",
+        "name": "Transaction Date",
+        "desc": ""
+    },
+    {
+        "tag": "9C",
+        "name": "Transaction Type",
+        "desc": ""
+    },
+    {
+        "tag": "9F01",
+        "name": "Acquirer Identifier",
+        "desc": ""
+    },
+    {
+        "tag": "9F02",
+        "name": "Amount, Authorized (Numeric)",
+        "desc": ""
+    },
+    {
+        "tag": "9F03",
+        "name": "Amount, Other (Numeric)",
+        "desc": ""
+    },
+    {
+        "tag": "9F07",
+        "name": "Application Usage Control",
+        "desc": ""
+    },
+    {
+        "tag": "9F08",
+        "name": "Application Version Number (Card)",
+        "desc": ""
+    },
+    {
+        "tag": "9F09",
+        "name": "Application Version Number (Reader)",
+        "desc": ""
+    },
+    {
+        "tag": "9F0D",
+        "name": "Issuer Action Code \u2013 Default",
+        "desc": ""
+    },
+    {
+        "tag": "9F0E",
+        "name": "Issuer Action Code \u2013 Denial",
+        "desc": ""
+    },
+    {
+        "tag": "9F0F",
+        "name": "Issuer Action Code \u2013 Online",
+        "desc": ""
+    },
+    {
+        "tag": "9F10",
+        "name": "Issuer Application Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F11",
+        "name": "Issuer Code Table Index",
+        "desc": ""
+    },
+    {
+        "tag": "9F12",
+        "name": "Application Preferred Name",
+        "desc": ""
+    },
+    {
+        "tag": "9F15",
+        "name": "Merchant Category Code",
+        "desc": ""
+    },
+    {
+        "tag": "9F16",
+        "name": "Merchant Identifier",
+        "desc": ""
+    },
+    {
+        "tag": "9F1A",
+        "name": "Terminal Country Code",
+        "desc": ""
+    },
+    {
+        "tag": "9F1C",
+        "name": "Terminal Identification",
+        "desc": ""
+    },
+    {
+        "tag": "9F1D",
+        "name": "Terminal Risk Management Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F1E",
+        "name": "Interface Device Serial Number",
+        "desc": ""
+    },
+    {
+        "tag": "9F1F",
+        "name": "Track 1 Discretionary Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F20",
+        "name": "Track 2 Discretionary Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F21",
+        "name": "Transaction Time",
+        "desc": ""
+    },
+    {
+        "tag": "9F24",
+        "name": "Payment Account Reference",
+        "desc": ""
+    },
+    {
+        "tag": "9F26",
+        "name": "Application Cryptogram",
+        "desc": ""
+    },
+    {
+        "tag": "9F27",
+        "name": "Cryptogram Information Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F32",
+        "name": "Issuer Public Key Exponent",
+        "desc": ""
+    },
+    {
+        "tag": "9F33",
+        "name": "Terminal Capabilities",
+        "desc": ""
+    },
+    {
+        "tag": "9F34",
+        "name": "CVM Results",
+        "desc": ""
+    },
+    {
+        "tag": "9F35",
+        "name": "Terminal Type",
+        "desc": ""
+    },
+    {
+        "tag": "9F36",
+        "name": "Application Transaction Counter",
+        "desc": ""
+    },
+    {
+        "tag": "9F37",
+        "name": "Unpredictable Number",
+        "desc": ""
+    },
+    {
+        "tag": "9F38",
+        "name": "PDOL",
+        "desc": ""
+    },
+    {
+        "tag": "9F40",
+        "name": "Additional Terminal Capabilities",
+        "desc": ""
+    },
+    {
+        "tag": "9F42",
+        "name": "Application Currency Code",
+        "desc": ""
+    },
+    {
+        "tag": "9F44",
+        "name": "Application Currency Exponent",
+        "desc": ""
+    },
+    {
+        "tag": "9F46",
+        "name": "ICC Public Key Certificate",
+        "desc": ""
+    },
+    {
+        "tag": "9F47",
+        "name": "ICC Public Key Exponent",
+        "desc": ""
+    },
+    {
+        "tag": "9F48",
+        "name": "ICC Public Key Remainder",
+        "desc": ""
+    },
+    {
+        "tag": "9F4A",
+        "name": "Static Data Authentication Tag List",
+        "desc": ""
+    },
+    {
+        "tag": "9F4B",
+        "name": "Signed Dynamic Application Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F4C",
+        "name": "ICC Dynamic Number",
+        "desc": ""
+    },
+    {
+        "tag": "9F4D",
+        "name": "Log Entry",
+        "desc": ""
+    },
+    {
+        "tag": "9F4E",
+        "name": "Merchant Name and Location",
+        "desc": ""
+    },
+    {
+        "tag": "9F50",
+        "name": "Offline Accumulator Balance",
+        "desc": ""
+    },
+    {
+        "tag": "9F51",
+        "name": "DRDOL",
+        "desc": ""
+    },
+    {
+        "tag": "9F53",
+        "name": "Transaction Category Code",
+        "desc": ""
+    },
+    {
+        "tag": "9F54",
+        "name": "DS ODS Card",
+        "desc": ""
+    },
+    {
+        "tag": "9F5B",
+        "name": "DSDOL",
+        "desc": ""
+    },
+    {
+        "tag": "9F5C",
+        "name": "DS Requested Operator ID",
+        "desc": ""
+    },
+    {
+        "tag": "9F5D",
+        "name": "Application Capabilities Information",
+        "desc": ""
+    },
+    {
+        "tag": "9F5E",
+        "name": "DS ID",
+        "desc": ""
+    },
+    {
+        "tag": "9F5F",
+        "name": "DS Slot Availability",
+        "desc": ""
+    },
+    {
+        "tag": "9F60",
+        "name": "CVC3 (Track1)",
+        "desc": ""
+    },
+    {
+        "tag": "9F61",
+        "name": "CVC3 (Track2)",
+        "desc": ""
+    },
+    {
+        "tag": "9F62",
+        "name": "PCVC3(Track1)",
+        "desc": ""
+    },
+    {
+        "tag": "9F63",
+        "name": "PUNATC(Track1)",
+        "desc": ""
+    },
+    {
+        "tag": "9F64",
+        "name": "NATC(Track1)",
+        "desc": ""
+    },
+    {
+        "tag": "9F65",
+        "name": "PCVC3(Track2)",
+        "desc": ""
+    },
+    {
+        "tag": "9F66",
+        "name": "PUNATC(Track2)",
+        "desc": ""
+    },
+    {
+        "tag": "9F67",
+        "name": "NATC(Track2)",
+        "desc": ""
+    },
+    {
+        "tag": "9F69",
+        "name": "UDOL",
+        "desc": ""
+    },
+    {
+        "tag": "9F6A",
+        "name": "Unpredictable Number (Numeric)",
+        "desc": ""
+    },
+    {
+        "tag": "9F6B",
+        "name": "Track 2 Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F6D",
+        "name": "Mag-stripe Application Version Number (Reader)",
+        "desc": ""
+    },
+    {
+        "tag": "9F6E",
+        "name": "Third Party Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F6F",
+        "name": "DS Slot Management Control",
+        "desc": ""
+    },
+    {
+        "tag": "9F70",
+        "name": "Protected Data Envelope 1",
+        "desc": ""
+    },
+    {
+        "tag": "9F71",
+        "name": "Protected Data Envelope 2",
+        "desc": ""
+    },
+    {
+        "tag": "9F72",
+        "name": "Protected Data Envelope 3",
+        "desc": ""
+    },
+    {
+        "tag": "9F73",
+        "name": "Protected Data Envelope 4",
+        "desc": ""
+    },
+    {
+        "tag": "9F74",
+        "name": "Protected Data Envelope 5",
+        "desc": ""
+    },
+    {
+        "tag": "9F75",
+        "name": "Unprotected Data Envelope 1",
+        "desc": ""
+    },
+    {
+        "tag": "9F76",
+        "name": "Unprotected Data Envelope 2",
+        "desc": ""
+    },
+    {
+        "tag": "9F77",
+        "name": "Unprotected Data Envelope 3",
+        "desc": ""
+    },
+    {
+        "tag": "9F78",
+        "name": "Unprotected Data Envelope 4",
+        "desc": ""
+    },
+    {
+        "tag": "9F79",
+        "name": "Unprotected Data Envelope 5",
+        "desc": ""
+    },
+    {
+        "tag": "9F7C",
+        "name": "Merchant Custom Data",
+        "desc": ""
+    },
+    {
+        "tag": "9F7D",
+        "name": "DS Summary 1",
+        "desc": ""
+    },
+    {
+        "tag": "9F7E",
+        "name": "Mobile Support Indicator",
+        "desc": ""
+    },
+    {
+        "tag": "9F7F",
+        "name": "DS Unpredictable Number",
+        "desc": ""
+    },
+    {
+        "tag": "A5",
+        "name": "File Control Information Proprietary Template",
+        "desc": ""
+    },
+    {
+        "tag": "BF0C",
+        "name": "File Control Information Issuer Discretionary Data",
+        "desc": ""
+    },
+    {
+        "tag": "DF4B",
+        "name": "POS Cardholder Interaction Information",
+        "desc": ""
+    },
+    {
+        "tag": "DF60",
+        "name": "DS Input (Card)",
+        "desc": ""
+    },
+    {
+        "tag": "DF61",
+        "name": "DS Digest H",
+        "desc": ""
+    },
+    {
+        "tag": "DF62",
+        "name": "DS ODS Info",
+        "desc": ""
+    },
+    {
+        "tag": "DF63",
+        "name": "DS ODS Term",
+        "desc": ""
+    },
+    {
+        "tag": "DF8101",
+        "name": "DS Summary 2",
+        "desc": ""
+    },
+    {
+        "tag": "DF8102",
+        "name": "DS Summary 3",
+        "desc": ""
+    },
+    {
+        "tag": "DF8104",
+        "name": "Balance Read Before Gen AC",
+        "desc": ""
+    },
+    {
+        "tag": "DF8105",
+        "name": "Balance Read After Gen AC",
+        "desc": ""
+    },
+    {
+        "tag": "DF8106",
+        "name": "Data Needed",
+        "desc": ""
+    },
+    {
+        "tag": "DF8107",
+        "name": "CDOL1 Related Data",
+        "desc": ""
+    },
+    {
+        "tag": "DF8108",
+        "name": "DS AC Type",
+        "desc": ""
+    },
+    {
+        "tag": "DF8109",
+        "name": "DS Input (Term)",
+        "desc": ""
+    },
+    {
+        "tag": "DF810A",
+        "name": "DS ODS Info For Reader",
+        "desc": ""
+    },
+    {
+        "tag": "DF810B",
+        "name": "DS Summary Status",
+        "desc": ""
+    },
+    {
+        "tag": "DF810C",
+        "name": "Kernel ID",
+        "desc": ""
+    },
+    {
+        "tag": "DF810D",
+        "name": "DSVN Term",
+        "desc": ""
+    },
+    {
+        "tag": "DF810E",
+        "name": "Post-Gen AC Put Data Status",
+        "desc": ""
+    },
+    {
+        "tag": "DF810F",
+        "name": "Pre-Gen AC Put Data Status",
+        "desc": ""
+    },
+    {
+        "tag": "DF8110",
+        "name": "Proceed To First Write Flag",
+        "desc": ""
+    },
+    {
+        "tag": "DF8111",
+        "name": "PDOL Related Data",
+        "desc": ""
+    },
+    {
+        "tag": "DF8112",
+        "name": "Tags To Read",
+        "desc": ""
+    },
+    {
+        "tag": "DF8113",
+        "name": "DRDOL Related Data",
+        "desc": ""
+    },
+    {
+        "tag": "DF8114",
+        "name": "Reference Control Parameter",
+        "desc": ""
+    },
+    {
+        "tag": "DF8115",
+        "name": "Error Indication",
+        "desc": ""
+    },
+    {
+        "tag": "DF8116",
+        "name": "User Interface Request Data",
+        "desc": ""
+    },
+    {
+        "tag": "DF8117",
+        "name": "Card Data Input Capability",
+        "desc": ""
+    },
+    {
+        "tag": "DF8118",
+        "name": "CVM Capability \u2013 CVM Required",
+        "desc": ""
+    },
+    {
+        "tag": "DF8119",
+        "name": "CVM Capability \u2013 No CVM Required",
+        "desc": ""
+    },
+    {
+        "tag": "DF811A",
+        "name": "Default UDOL",
+        "desc": ""
+    },
+    {
+        "tag": "DF811B",
+        "name": "Kernel Configuration",
+        "desc": ""
+    },
+    {
+        "tag": "DF811C",
+        "name": "Max Lifetime of Torn Transaction Log Record",
+        "desc": ""
+    },
+    {
+        "tag": "DF811D",
+        "name": "Max Number of Torn Transaction Log Records",
+        "desc": ""
+    },
+    {
+        "tag": "DF811E",
+        "name": "Mag-stripe CVM Capability \u2013 CVM Required",
+        "desc": ""
+    },
+    {
+        "tag": "DF811F",
+        "name": "Security Capability",
+        "desc": ""
+    },
+    {
+        "tag": "DF8120",
+        "name": "Terminal Action Code \u2013 Default",
+        "desc": ""
+    },
+    {
+        "tag": "DF8121",
+        "name": "Terminal Action Code \u2013 Denial",
+        "desc": ""
+    },
+    {
+        "tag": "DF8122",
+        "name": "Terminal Action Code \u2013 Online",
+        "desc": ""
+    },
+    {
+        "tag": "DF8123",
+        "name": "Reader Contactless Floor Limit",
+        "desc": ""
+    },
+    {
+        "tag": "DF8124",
+        "name": "Reader Contactless Transaction Limit (No On-device CVM)",
+        "desc": ""
+    },
+    {
+        "tag": "DF8125",
+        "name": "Reader Contactless Transaction Limit (On-device CVM)",
+        "desc": ""
+    },
+    {
+        "tag": "DF8126",
+        "name": "Reader CVM Required Limit",
+        "desc": ""
+    },
+    {
+        "tag": "DF8127",
+        "name": "Time Out Value",
+        "desc": ""
+    },
+    {
+        "tag": "DF8128",
+        "name": "IDS Status",
+        "desc": ""
+    },
+    {
+        "tag": "DF8129",
+        "name": "Outcome Parameter Set",
+        "desc": ""
+    },
+    {
+        "tag": "DF812A",
+        "name": "DD Card (Track1)",
+        "desc": ""
+    },
+    {
+        "tag": "DF812B",
+        "name": "DD Card (Track2)",
+        "desc": ""
+    },
+    {
+        "tag": "DF812C",
+        "name": "Mag-stripe CVM Capability \u2013 No CVM Required",
+        "desc": ""
+    },
+    {
+        "tag": "DF812D",
+        "name": "Message Hold Time",
+        "desc": ""
+    },
+    {
+        "tag": "DF8130",
+        "name": "Hold Time Value",
+        "desc": ""
+    },
+    {
+        "tag": "DF8131",
+        "name": "Phone Message Table",
+        "desc": ""
+    },
+    {
+        "tag": "DF8132",
+        "name": "Minimum Relay Resistance Grace Period",
+        "desc": ""
+    },
+    {
+        "tag": "DF8133",
+        "name": "Maximum Relay Resistance Grace Period",
+        "desc": ""
+    },
+    {
+        "tag": "DF8134",
+        "name": "Terminal Expected Transmission Time For Relay Resistance C-APDU",
+        "desc": ""
+    },
+    {
+        "tag": "DF8135",
+        "name": "Terminal Expected Transmission Time For Relay Resistance R-APDU",
+        "desc": ""
+    },
+    {
+        "tag": "DF8136",
+        "name": "Relay Resistance Accuracy Threshold",
+        "desc": ""
+    },
+    {
+        "tag": "DF8137",
+        "name": "Relay Resistance Transmission Time Mismatch Threshold",
+        "desc": ""
+    },
+    {
+        "tag": "DF8301",
+        "name": "Terminal Relay Resistance Entropy",
+        "desc": ""
+    },
+    {
+        "tag": "DF8302",
+        "name": "Device Relay Resistance Entropy",
+        "desc": ""
+    },
+    {
+        "tag": "DF8303",
+        "name": "Min Time For Processing Relay Resistance APDU",
+        "desc": ""
+    },
+    {
+        "tag": "DF8304",
+        "name": "Max Time For Processing Relay Resistance APDU",
+        "desc": ""
+    },
+    {
+        "tag": "DF8305",
+        "name": "Device Estimated Transmission Time For Relay Resistance R-APDU",
+        "desc": ""
+    },
+    {
+        "tag": "DF8306",
+        "name": "Measured Relay Resistance Processing Time",
+        "desc": ""
+    },
+    {
+        "tag": "DF8307",
+        "name": "RRP Counter",
+        "desc": ""
+    },
+    {
+        "tag": "FF8101",
+        "name": "Torn Record",
+        "desc": ""
+    },
+    {
+        "tag": "FF8102",
+        "name": "Tags To Write Before Gen AC",
+        "desc": ""
+    },
+    {
+        "tag": "FF8103",
+        "name": "Tags To Write After Gen AC",
+        "desc": ""
+    },
+    {
+        "tag": "FF8104",
+        "name": "Data To Send",
+        "desc": ""
+    },
+    {
+        "tag": "FF8105",
+        "name": "Data Record",
+        "desc": ""
+    }
+]

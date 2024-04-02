@@ -32,7 +32,7 @@ namespace EmvHelper.Support.Local.Helpers
                 foreach (Tlv tlv in tlvs)
                 {
                     TagInfo? tagInfo = TagManager.GetTagInfo(tlv.HexTag);
-                    sb.AppendLine($"{new string(' ', numOfSpaces * depth)}{tagInfo?.Name ?? "*"} ({tlv.HexTag}) : {tlv.HexLength} : {tlv.HexValue}");
+                    sb.AppendLine($"{new string(' ', numOfSpaces * depth)}{tlv.HexTag} ({tagInfo?.Name ?? "*"}) : {tlv.HexLength} : {tlv.HexValue}");
                     if (tlv.Children != null)
                     {
                         ToString(tlv.Children, depth + 1);

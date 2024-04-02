@@ -44,8 +44,7 @@ namespace EmvHelper.Support.Local.Helpers
 
         static TValue GetValueOrDefault<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
         {
-            TValue value;
-            if (dictionary.TryGetValue(key, out value))
+            if (dictionary.TryGetValue(key, out TValue? value))
             {
                 return value; // 해당 키에 해당되는 값이 있으면 반환
             }
