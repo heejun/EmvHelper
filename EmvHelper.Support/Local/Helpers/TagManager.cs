@@ -8,12 +8,14 @@ namespace EmvHelper.Support.Local.Helpers
     public class TagManager
     {
         private static readonly Dictionary<string, TagInfo> _tagEmvDictionary;
+        private static readonly Dictionary<string, TagInfo> _tagVivoDictionary;
         private static readonly Dictionary<string, TagInfo> _tagMcDictionary;
         private static readonly Dictionary<string, TagInfo> _tagVisaDictionary;
 
         static TagManager()
         {
             _tagEmvDictionary = LoadTagData("Data/emv_common.json");
+            _tagVivoDictionary = LoadTagData("Data/emv_vivo.json");
             _tagMcDictionary = LoadTagData("Data/emv_mc.json");
             _tagVisaDictionary = LoadTagData("Data/emv_visa.json");
         }
@@ -48,6 +50,10 @@ namespace EmvHelper.Support.Local.Helpers
             TagInfo? tagInfo;
 
             if (_tagEmvDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
+            {
+                return tagInfo;
+            }
+            else if (_tagVivoDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
             {
                 return tagInfo;
             }

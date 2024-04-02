@@ -1,0 +1,422 @@
+[
+  {
+    "tag": "DFEF17",
+    "name": "Track 1 Data",
+    "desc": ""
+  },
+  {
+    "tag": "FFEE13",
+    "name": "Track 1 Data",
+    "desc": ""
+  },
+  {
+    "tag": "DFEF18",
+    "name": "Track 2 Data",
+    "desc": ""
+  },
+  {
+    "tag": "FFEE14",
+    "name": "Track 2 Data",
+    "desc": ""
+  },
+  {
+    "tag": "50",
+    "name": "Application Label",
+    "desc": ""
+  },
+  {
+    "tag": "56",
+    "name": "Track 1 Equivalent Data",
+    "desc": ""
+  },
+  {
+    "tag": "57",
+    "name": "Track 2 Equivalent Data",
+    "desc": ""
+  },
+  {
+    "tag": "5A",
+    "name": "Application Primary Account Number (PAN)",
+    "desc": ""
+  },
+  {
+    "tag": "82",
+    "name": "Application Interchange Profile",
+    "desc": ""
+  },
+  {
+    "tag": "84",
+    "name": "DF Name",
+    "desc": ""
+  },
+  {
+    "tag": "95",
+    "name": "Terminal Verification Results",
+    "desc": ""
+  },
+  {
+    "tag": "99",
+    "name": "Online PIN Block n 16",
+    "desc": ""
+  },
+  {
+    "tag": "9A",
+    "name": "Transaction Date",
+    "desc": ""
+  },
+  {
+    "tag": "9B",
+    "name": "Transaction Status Information. b 2",
+    "desc": ""
+  },
+  {
+    "tag": "9C",
+    "name": "Transaction Type",
+    "desc": ""
+  },
+  {
+    "tag": "5F20",
+    "name": "Cardholder Name. b <=26",
+    "desc": ""
+  },
+  {
+    "tag": "5F24",
+    "name": "Application Expiration Date",
+    "desc": ""
+  },
+  {
+    "tag": "5F25",
+    "name": "Application Effective Date",
+    "desc": ""
+  },
+  {
+    "tag": "5F2A",
+    "name": "Transaction Currency Code",
+    "desc": ""
+  },
+  {
+    "tag": "5F2D",
+    "name": "Language Preference",
+    "desc": ""
+  },
+  {
+    "tag": "5F34",
+    "name": "PAN Sequence Number",
+    "desc": ""
+  },
+  {
+    "tag": "9F02",
+    "name": "Amount, Authorized n12 6",
+    "desc": ""
+  },
+  {
+    "tag": "9F03",
+    "name": "Amount Other n12 6",
+    "desc": ""
+  },
+  {
+    "tag": "9F06",
+    "name": "Application Identifier (AID). b 5..16",
+    "desc": ""
+  },
+  {
+    "tag": "9F07",
+    "name": "Application Usage Control. b 2",
+    "desc": ""
+  },
+  {
+    "tag": "9F09",
+    "name": "Application Version Number (Reader)",
+    "desc": ""
+  },
+  {
+    "tag": "9F0D",
+    "name": "Issuer Action Code (Default). b 5",
+    "desc": ""
+  },
+  {
+    "tag": "9F0E",
+    "name": "Issuer Action Code (Denial). b 5",
+    "desc": ""
+  },
+  {
+    "tag": "9F0F",
+    "name": "Issuer Action Code (Online)",
+    "desc": ""
+  },
+  {
+    "tag": "9F10",
+    "name": "Issuer Application Data",
+    "desc": ""
+  },
+  {
+    "tag": "9F11",
+    "name": "Issuer Code Table Index",
+    "desc": ""
+  },
+  {
+    "tag": "9F12",
+    "name": "Application Preferred Name",
+    "desc": ""
+  },
+  {
+    "tag": "9F1A",
+    "name": "Terminal Country Code",
+    "desc": ""
+  },
+  {
+    "tag": "9F1E",
+    "name": "Interface Device Serial Number",
+    "desc": ""
+  },
+  {
+    "tag": "9F21",
+    "name": "Transaction Time",
+    "desc": ""
+  },
+  {
+    "tag": "9F26",
+    "name": "Application Cryptogram",
+    "desc": ""
+  },
+  {
+    "tag": "9F27",
+    "name": "Cryptogram Information Data",
+    "desc": ""
+  },
+  {
+    "tag": "9F2A",
+    "name": "Kernel ID",
+    "desc": ""
+  },
+  {
+    "tag": "9F33",
+    "name": "Terminal Capabilities",
+    "desc": ""
+  },
+  {
+    "tag": "9F34",
+    "name": "Cardholder Verification Method (CVM) Results",
+    "desc": ""
+  },
+  {
+    "tag": "9F35",
+    "name": "Terminal Type",
+    "desc": ""
+  },
+  {
+    "tag": "9F36",
+    "name": "Application Transaction Counter",
+    "desc": ""
+  },
+  {
+    "tag": "9F37",
+    "name": "Unpredictable Number",
+    "desc": ""
+  },
+  {
+    "tag": "9F39",
+    "name": "Point of Service (POS) Entry Mode. Indicates the method by which the PAN",
+    "desc": ""
+  },
+  {
+    "tag": "9F42",
+    "name": "Application Currency Code",
+    "desc": ""
+  },
+  {
+    "tag": "9F45",
+    "name": "Data Authentication Code. b 2",
+    "desc": ""
+  },
+  {
+    "tag": "9F4C",
+    "name": "ICC Dynamic Number. b 8",
+    "desc": ""
+  },
+  {
+    "tag": "9F53",
+    "name": "Transaction Category Code",
+    "desc": ""
+  },
+  {
+    "tag": "9F5A",
+    "name": "Membership Scheme - Account Number (Amex)",
+    "desc": ""
+  },
+  {
+    "tag": "9F5B",
+    "name": "Membership Scheme Number of Points (Amex). an <=29",
+    "desc": ""
+  },
+  {
+    "tag": "9F5D",
+    "name": "Available Offline Spending Amount (Balance). b 6",
+    "desc": ""
+  },
+  {
+    "tag": "9F6B",
+    "name": "Track 2 Data",
+    "desc": ""
+  },
+  {
+    "tag": "9F6C",
+    "name": "Card Transaction Qualifiers (Visa transactions only). If card does not return",
+    "desc": ""
+  },
+  {
+    "tag": "9F6D",
+    "name": "Mag-Stripe Application Version Number (Reader)",
+    "desc": ""
+  },
+  {
+    "tag": "9F6E",
+    "name": "Third Party Data",
+    "desc": ""
+  },
+  {
+    "tag": "9F74",
+    "name": "VLP Issuer Authorization b 6",
+    "desc": ""
+  },
+  {
+    "tag": "DF8104",
+    "name": "Balance Read Before GenAC. (MasterCard)",
+    "desc": ""
+  },
+  {
+    "tag": "DF8105",
+    "name": "Balance Read After GenAC. (MasterCard)",
+    "desc": ""
+  },
+  {
+    "tag": "DF8115",
+    "name": "Error Indication. (MasterCard)",
+    "desc": ""
+  },
+  {
+    "tag": "DF8129",
+    "name": "Outcome Parameter Set (MasterCard)",
+    "desc": ""
+  },
+  {
+    "tag": "FF8105",
+    "name": "Data Record (MasterCard, container)",
+    "desc": ""
+  },
+  {
+    "tag": "FF8106",
+    "name": "Discretionary Data (MasterCard, container)",
+    "desc": ""
+  },
+  {
+    "tag": "FFEE01",
+    "name": "ViVOPay Group Tag. (container)",
+    "desc": ""
+  },
+  {
+    "tag": "DF30",
+    "name": "(ViVOpay proprietary) Track Data Source",
+    "desc": ""
+  },
+  {
+    "tag": "DF31",
+    "name": "(ViVOpay proprietary) DD Card Track 1 (MagStripe Card)",
+    "desc": ""
+  },
+  {
+    "tag": "DF32",
+    "name": "(ViVOpay proprietary) DD Card Track 2 (MagStripe Card)",
+    "desc": ""
+  },
+  {
+    "tag": "DF33",
+    "name": "(ViVOpay proprietary) Receipt Requirement (Interac)",
+    "desc": ""
+  },
+  {
+    "tag": "DF5B",
+    "name": "(ViVOpay proprietary) Terminal Entry Capability (Visa)",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC0E",
+    "name": "Simulated Expiry Date.(YYMMDD)",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC0F",
+    "name": "Template holds data if DESFire or Ultralight is tapped",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC1C",
+    "name": "XFS Format Data",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC35",
+    "name": "C4 pseudo track 1 data ans var",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC36",
+    "name": "C4 pseudo track 2 data ans var",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC37",
+    "name": "C4 delayed ARQC transaction indicator",
+    "desc": ""
+  },
+  {
+    "tag": "DFED4B",
+    "name": "SHA-256 of PAN",
+    "desc": ""
+  },
+  {
+    "tag": "DFED5D",
+    "name": "The first six digits from PAN (3 BYTES) + 5 first bytes of hash + Last four digits of PAN (2 bytes)",
+    "desc": ""
+  },
+  {
+    "tag": "DFED68",
+    "name": "Contain the special HMAC of PAN using salt",
+    "desc": ""
+  },
+  {
+    "tag": "DFEE26",
+    "name": "Encryption and Data Capture Information",
+    "desc": ""
+  },
+  {
+    "tag": "DFEE4C",
+    "name": "(FFE2)Application Flow",
+    "desc": ""
+  },
+  {
+    "tag": "DFEF73",
+    "name": "CUP Output Message Info (CUP)",
+    "desc": ""
+  },
+  {
+    "tag": "DFEF7B",
+    "name": "(Vendi only)",
+    "desc": ""
+  },
+  {
+    "tag": "DFEF7F",
+    "name": "ODA/Online indicator",
+    "desc": ""
+  },
+  {
+    "tag": "DFED6D",
+    "name": "This tag is used to indicate the result indicators for Visa transit kernel. 1",
+    "desc": ""
+  },
+  {
+    "tag": "DFEC1C",
+    "name": "XFS Format Data",
+    "desc": ""
+  }
+]
