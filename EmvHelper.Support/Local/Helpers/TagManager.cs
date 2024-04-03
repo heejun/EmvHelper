@@ -45,7 +45,7 @@ namespace EmvHelper.Support.Local.Helpers
             return result;
         }
 
-        public static TagInfo? GetTagInfo(string tag)
+        public static TagInfo? GetTagInfo(string tag, CardBrandType brandType)
         {
             TagInfo? tagInfo;
 
@@ -57,16 +57,23 @@ namespace EmvHelper.Support.Local.Helpers
             {
                 return tagInfo;
             }
-            //else if (_tagMcDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
-            //{
-            //    return tagInfo;
-            //}
-            else if (_tagVisaDictionary.TryGetValue(tag.ToUpper(), out tagInfo))
+
+            switch (brandType)
             {
-                return tagInfo;
+                case CardBrandType.Visa:
+                    _tagVisaDictionary.TryGetValue(tag.ToUpper(), out tagInfo);
+                    break;
+
+                case CardBrandType.MasterCard:
+                    _tagMcDictionary.TryGetValue(tag.ToUpper(), out tagInfo);
+                    break;
+
+                case CardBrandType.CUP:
+                case CardBrandType.MIR:
+                    break;
             }
 
-            return null;
+            return tagInfo;
         }
     }
 }

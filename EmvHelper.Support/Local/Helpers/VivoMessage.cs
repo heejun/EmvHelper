@@ -202,7 +202,7 @@ namespace EmvHelper.Support.Local.Helpers
             }
         }
 
-        public override string ToString()
+        public string ToString(CardBrandType brandType)
         {
             if (!IsValidMessage)
             {
@@ -253,7 +253,7 @@ namespace EmvHelper.Support.Local.Helpers
             if (TlvData != null)
             {
                 sb.AppendLine($"TLV Data : {StringHelper.ByteArrayToHexString(TlvRawData)}");
-                sb.AppendLine(TlvParser.ToString(TlvData, 1));
+                sb.AppendLine(TlvParser.ToString(TlvData, brandType, 1));
             }
 
             return sb.ToString();

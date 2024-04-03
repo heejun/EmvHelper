@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvts="clr-namespace:EmvHelper.Support.Local.Converters;assembly=EmvHelper.Support"
+    xmlns:helpers="clr-namespace:EmvHelper.Support.Local.Helpers;assembly=EmvHelper.Support"
     xmlns:views="clr-namespace:EmvHelper.Main.UI.Views">
 
     <Style TargetType="{x:Type views:MainContent}">
@@ -32,20 +34,58 @@
                                     Content="Parse"
                                     Height="30"
                                     Width="100"
+                                    Margin="5"
                                     Command="{Binding ParseCommand}"
                                 />
                                 <Button
                                     Content="Clear"
                                     Height="30"
                                     Width="100"
-                                    Margin="5 0 0 0"
+                                    Margin="5"
                                     Command="{Binding ClearCommand}"
                                 />
                                 <CheckBox
                                     Content="TLVs only"
-                                    Margin="5 0 0 0"
+                                    Margin="5"
+                                    VerticalAlignment="Center"
                                     IsChecked="{Binding IsTlvOnly}"
                                 />
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Margin="5">
+                                    <RadioButton
+                                        Content="Visa"
+                                        Margin="5 0 0 0"
+                                        VerticalAlignment="Center"
+                                        IsChecked="{Binding CardBrandType,
+                                            Converter={cvts:BrandToBoolConverter},
+                                            ConverterParameter={x:Static helpers:CardBrandType.Visa}}"
+                                    />
+                                    <RadioButton
+                                        Content="MasterCard"
+                                        Margin="5 0 0 0"
+                                        VerticalAlignment="Center"
+                                        IsChecked="{Binding CardBrandType,
+                                            Converter={cvts:BrandToBoolConverter},
+                                            ConverterParameter={x:Static helpers:CardBrandType.MasterCard}}"
+                                    />
+                                    <RadioButton
+                                        Content="CUP"
+                                        Margin="5 0 0 0"
+                                        VerticalAlignment="Center"
+                                        IsChecked="{Binding CardBrandType,
+                                            Converter={cvts:BrandToBoolConverter},
+                                            ConverterParameter={x:Static helpers:CardBrandType.CUP}}"
+                                    />
+                                    <RadioButton
+                                        Content="MIR"
+                                        Margin="5 0 0 0"
+                                        VerticalAlignment="Center"
+                                        IsChecked="{Binding CardBrandType,
+                                            Converter={cvts:BrandToBoolConverter},
+                                            ConverterParameter={x:Static helpers:CardBrandType.MIR}}"
+                                    />
+                                </StackPanel>
                             </StackPanel>
 
 

@@ -17,12 +17,12 @@ namespace EmvHelper.Support.Local.Helpers
             return Tlv.Parse(tlv);
         }
 
-        public static string ToString(Tlv tlv)
+        public static string ToString(Tlv tlv, CardBrandType brandType)
         {
-            return ToString(new List<Tlv>() { tlv });
+            return ToString(new List<Tlv>() { tlv }, brandType);
         }
 
-        public static string ToString(ICollection<Tlv> tlvs, int depth = 0)
+        public static string ToString(ICollection<Tlv> tlvs, CardBrandType brandType, int depth = 0)
         {
             StringBuilder sb = new();
             int numOfSpaces = 4;
@@ -31,11 +31,11 @@ namespace EmvHelper.Support.Local.Helpers
             {
                 foreach (Tlv tlv in tlvs)
                 {
-                    TagInfo? tagInfo = TagManager.GetTagInfo(tlv.HexTag);
+                    TagInfo? tagInfo = TagManager.GetTagInfo(tlv.HexTag, brandType);
                     sb.AppendLine($"{new string(' ', numOfSpaces * depth)}{tlv.HexTag} ({tagInfo?.Name ?? "*"}) : {tlv.HexLength} : {tlv.HexValue}");
                     if (tlv.Children != null)
                     {
-                        ToString(tlv.Children, depth + 1);
+                        ToString(tlv.Children, brandType, depth + 1);
                     }
                 }
             }
