@@ -21,6 +21,8 @@
                             <TextBox
                                 Grid.Row="0"
                                 Text="{Binding RawData}"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Auto"
                             />
 
                             <StackPanel
@@ -50,6 +52,8 @@
                             <TextBox
                                 Grid.Row="2"
                                 Text="{Binding ParsedData}"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Auto"
                             />
 
                         </Grid>
