@@ -19,15 +19,11 @@ namespace EmvHelper.Support.Local.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isSelected && parameter is CardBrandType targetBrand)
+            if ((bool)value)
             {
-                if (isSelected)
-                {
-                    return targetBrand;
-                }
+                return parameter;
             }
-
-            throw new NotSupportedException();
+            return Binding.DoNothing;
         }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
