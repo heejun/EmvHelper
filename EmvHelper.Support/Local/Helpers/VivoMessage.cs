@@ -160,17 +160,19 @@ namespace EmvHelper.Support.Local.Helpers
                     // Track 1/2/3
                     for (int i = 0; i < 3; i++)
                     {
-                        if (vm.Data[index] > 0)
+                        var trackLength = vm.Data[index++];
+
+                        if (trackLength > 0)
                         {
-                            var trackData = new byte[vm.Data[index]];
-                            Array.Copy(vm.Data, 0, trackData, 0, trackData.Length);
+                            var trackData = new byte[trackLength];
+                            Array.Copy(vm.Data, index, trackData, 0, trackData.Length);
                             successfulData.Tracks[i] = trackData;
-                            index += trackData.Length + 1;
+                            index += trackData.Length;
                         }
                     }
 
                     // Clearing Record Present
-                    bool isClearingPresent = (vm.Data[index++] == 1);
+                    //bool isClearingPresent = (vm.Data[index++] == 1);
 
                     vm.TlvRawData = new byte[vm.Data.Length - index];
                     Array.Copy(vm.Data, index, vm.TlvRawData, 0, vm.TlvRawData.Length);
@@ -213,7 +215,7 @@ namespace EmvHelper.Support.Local.Helpers
             sb.AppendLine($"Header : {StringHelper.ByteArrayToAsciiString(HeaderTag)}");
             sb.AppendLine($"Command : {Command:X2}h");
             sb.AppendLine($"Status Code : {StatusCode:X2}h - {GetValueOrDefault(_statusDictionary, StatusCode, "")}");
-            sb.AppendLine($"Data Length : {Data?.Length ?? 0}");
+            sb.AppendLine($"Data Length : {(Data?.Length ?? 0):X2}h");
             string hexString = StringHelper.ByteArrayToHexString(Data);
             if (hexString != null)
             {
@@ -228,7 +230,7 @@ namespace EmvHelper.Support.Local.Helpers
                     for (int i = 0; i < 3; i++)
                     {
                         var trackData = SuccessfulData.Tracks[i];
-                        sb.Append($"Track {i + 1} Data : {trackData?.Length ?? 0} : ");
+                        sb.Append($"Track {i + 1} Data : {(trackData?.Length ?? 0):X2}h : ");
                         if (trackData != null)
                         {
                             sb.AppendLine($"{StringHelper.ByteArrayToHexString(trackData)}");
